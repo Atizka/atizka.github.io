@@ -104,27 +104,65 @@ function closemenu() {
   const containerAzka = document.getElementById('containerCharacterAzka');
   const umi = document.getElementById('characterUmi');
   const azka = document.getElementById('characterAzka');
+  const backUmi = document.getElementById('backUmi');
+  const backAzka = document.getElementById('backAzka');
+  const confirmAzka = document.getElementById('confirmAzka');
+  const confirmUmi = document.getElementById('confirmUmi');
 
-  containerUmi.addEventListener('mouseover', function() {
+  containerUmi.addEventListener('click', function() {
     umi.style.transition = '1s';
+    umi.style.transform = 'translateX(100%)';
     textUmi.style.left = '10%';
     azka.style.transition = '1s';
     azka.style.transform = 'translateX(200%)';
-  });
-  containerUmi.addEventListener('mouseout', function() {
+    document.getElementById('ubahStroke').innerText = 'Ingin memilih Atiyah?';
+    document.getElementById('ubahBiasa').innerText = 'Ingin memilih Atiyah?';
+  }, true);
+
+  backUmi.addEventListener('mouseover', function() {
     textUmi.style.left = '-100%';
+    umi.style.transform = 'translateX(0)';
     azka.style.transition = '1s';
     azka.style.transform = 'translateX(0)';
+    document.getElementById('ubahStroke').innerText = 'Pilih Karakter';
+    document.getElementById('ubahBiasa').innerText = 'Pilih Karakter';
   });
 
-  containerAzka.addEventListener('mouseover', function() {
+  containerAzka.addEventListener('click', function() {
     azka.style.transition = '1s';
+    azka.style.transform = 'translateX(-100%)';
     textAzka.style.right = '10%';
     umi.style.transition = '1s';
     umi.style.transform = 'translateX(-200%)';
-  });
-  containerAzka.addEventListener('mouseout', function() {
+    document.getElementById('ubahStroke').innerText = 'Ingin memilih Azka?';
+    document.getElementById('ubahBiasa').innerText = 'Ingin memilih Azka?';
+  }, true);
+
+  backAzka.addEventListener('mouseover', function() {
     textAzka.style.right = '-100%';
+    azka.style.transform = 'translateX(0)'
     umi.style.transition = '1s';
     umi.style.transform = 'translateX(0)';
+    document.getElementById('ubahStroke').innerText = 'Pilih Karakter';
+    document.getElementById('ubahBiasa').innerText = 'Pilih Karakter';
+  });
+
+  confirmUmi.addEventListener('click', function() {
+    backUmi.style.display = 'none';
+    document.getElementById('ubahStroke').innerText = 'Kamu Memilih Atiyah!';
+    document.getElementById('ubahBiasa').innerText = 'Kamu Memilih Atiyah!';
+    this.innerText = 'Anda Telah Memilih Karakter Ini';
+    this.style.backgroundColor = 'rgb(184, 25, 25)';
+    this.style.border = '1px solid white';
+    this.style.color = 'white';
+  });
+
+  confirmAzka.addEventListener('click', function() {
+    backAzka.style.display = 'none';
+    document.getElementById('ubahStroke').innerText = 'Kamu Memilih Azka!';
+    document.getElementById('ubahBiasa').innerText = 'Kamu Memilih Azka!';
+    this.innerText = 'Anda Telah Memilih Karakter Ini';
+    this.style.backgroundColor = 'rgb(184, 25, 25)';
+    this.style.border = '1px solid white';
+    this.style.color = 'white';
   });
